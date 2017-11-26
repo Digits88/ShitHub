@@ -1,0 +1,13 @@
+ HINWEISE
+========== 
+
+Ausstehende Reviews:
+- Alle Snippets, die weniger als 3 Reviews erhalten haben
+- Sortiert nach Alter (neueste zuerst)
+
+Heiße Reviews:
+- Alle Snippets, bei denen die Differenz von Max() und Min() > 5
+
+Eigene Reviews:
+- Alle eigenen Snippets, die mindestens 3 Reviews erhalten haben
+
