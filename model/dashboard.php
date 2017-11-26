@@ -1,6 +1,4 @@
 <?php
-error_reporting: -1;
-ini_set('display_errors', 1);
 
 /*
  
@@ -30,7 +28,7 @@ $rev_hot = "";
 
 $dbfile = 'shithub_database.db';
 $sqlite = new SQLite3($dbfile);
-$stmt = $sqlite ->prepare("SELECT * FROM snippets WHERE ((SELECT STDDEV(Safety_Score) FROM ratings WHERE id=snippets.id GROUP BY id)) < 3 ORDER BY id");
+$stmt = $sqlite ->prepare("SELECT * FROM (SELECT * FROM snippets JOIN (SELECT MAX(ratings.Safety_Score) - MIN(ratings.Safety_Score) AS diff, ratings.Snippet_ID FROM ratings GROUP BY ratings.Snippet_ID) as 'data' ON data.Snippet_ID = snippets.ID) WHERE diff > 5");
 $result = $stmt->execute();
 
 $i = 1;

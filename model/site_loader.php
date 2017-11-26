@@ -15,7 +15,7 @@ class site_loader{
 	require_once("parseTemplate.php");
         
         $site = $_GET['s'];
-	   $loginfailed = $_GET['loginfailed'];        
+	    $loginfailed = $_GET['loginfailed'];        
         if($site == null){
             $site = "index";
         }
@@ -32,7 +32,14 @@ class site_loader{
         
 
         if($_SESSION['loggedIn'] == 1){
-            TemplateParser::push_variable('loginor', '<a class="nav-link" href="?s=profile">Profil</a>');
+            TemplateParser::push_variable('loginor', '<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown-review" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Profil
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown-review">
+                <a class="dropdown-item" href="#">Logout</a>
+            </div>
+        </li>');
         }
 
         if(in_array($site, $this->sites) && file_exists('templates/'.$site.'.php')){

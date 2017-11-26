@@ -14,19 +14,13 @@
                     </thead>
                     <tbody>
                         {revnext}
-                            <tr>
-                                <th scope="row">1</th>
-                                    <td>25.11.2017</td>
-                                    <td>Jugend hackt Projekt</td>
-                                    <td>anghofus</td>
-                            </tr>
                     </tbody> 
                 </table>
     
             </div>
             
             <div class= "col-sm" align= "center">
-                <h3> Letzte Review </h3>
+                <h3> Letzte Reviews </h3>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -39,12 +33,6 @@
                     </thead>
                     <tbody>
                         {revhot}
-                        <tr>
-                            <th scope="row">1</th>
-                                <td>25.11.2017</td>
-                                <td>Jugend hackt Projekt</td>
-                                <td>anghofus</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

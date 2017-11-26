@@ -58,14 +58,7 @@
             {loginor}
             <!-- <a class="nav-link {logged_in}" href="?s=login">Login <span class="sr-only">(current)</span></a> -->
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown-review" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             Profil
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdown-review">
-                <a class="dropdown-item" href="#">Logout</a>
-            </div>
-        </li>
+          
         </ul>
       </div>
       
