@@ -21,18 +21,18 @@ class login{
         $res = $result->fetchArray(SQLITE3_NUM);
         $stmt->close();
         $sqlite->close();
-        if($password == $res[0])
-        {
-            $_SESSION['userID'] = $res[0];
+        if($password == $res[0]){
+            $_SESSION['userID'] = $res[1];
             $_SESSION['loggedIn'] = 1;
             
             require_once("parseTemplate.php");
             TemplateParser::push_variable('loginor', '<a class="nav-link" href="?s=profile">Profil</a>');
-            header('Location: /ShitHub/index.php');
+            TemplateParser::push_variable('loginfailed', '');
+	    header('Location: /');
             exit();
         }else{
-            
-        }
+ 	    header('Location: /?s=login&loginfailed=true');       
+}
     }
     
     function logout(){

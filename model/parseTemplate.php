@@ -29,7 +29,7 @@ class TemplateParser{
         self::$array[$key1] = $val1;
     }
     
-    public static function isSet($key1){
+    public static function issaved($key1){
         if(isset(self::$array[$key1])){
             return true;
         }

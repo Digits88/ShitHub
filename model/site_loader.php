@@ -10,16 +10,17 @@ class site_loader{
     }
     
     public function load_sites(){
-        //error_reporting(E_ALL);
-        //ini_set("display_errors", 1);
-        require_once("parseTemplate.php");
+        session_start();
+
+	require_once("parseTemplate.php");
         
         $site = $_GET['s'];
-        
+	   $loginfailed = $_GET['loginfailed'];        
         if($site == null){
             $site = "index";
         }
         
+//LOOK, it's code
         if($site == "index") {
             require "dashboard.php";
             TemplateParser::push_variable("revnext", $rev_next);
@@ -29,17 +30,22 @@ class site_loader{
         $pl = "<option>".implode("</option><option>", explode("\n", file_get_contents("./model/listofpl.txt")))."</option>";
         TemplateParser::push_variable('pl', $pl);
         
-        
+
         if($_SESSION['loggedIn'] == 1){
             TemplateParser::push_variable('loginor', '<a class="nav-link" href="?s=profile">Profil</a>');
         }
-        print('adsf'.$_SESSION['loggedIn']);
-        
+
         if(in_array($site, $this->sites) && file_exists('templates/'.$site.'.php')){
             TemplateParser::push_variable("title", $this->names[array_search($site, $this->sites)]);
             $parser = new TemplateParser('templates/header.php');
             $parser->parse();
             
+	    if($loginfailed){
+		TemplateParser::push_variable('loginfailed', '<div class="alert alert-danger">
+  <strong>Login failed!</strong> Incorrect username or password.
+</div>');
+	    }
+
             $parser = new TemplateParser('templates/'.$site.'.php');
             $parser->parse();
         }else{

@@ -1,4 +1,5 @@
 <?php
+
 function get_snippet_by_id($db, $id) {
     if(!is_numeric($id)) {
         throw new Exception('Snippet ID must be numerical!');

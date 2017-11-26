@@ -30,7 +30,7 @@ $rev_hot = "";
 
 $dbfile = 'shithub_database.db';
 $sqlite = new SQLite3($dbfile);
-$stmt = $sqlite ->prepare("SELECT * FROM snippets WHERE ((SELECT MAX(Safety_Score) FROM ratings WHERE id=snippets.id) - (SELECT MIN(Safety_Score) FROM ratings WHERE id=snippets.id)) < 5 ORDER BY id");
+$stmt = $sqlite ->prepare("SELECT * FROM snippets WHERE ((SELECT STDDEV(Safety_Score) FROM ratings WHERE id=snippets.id GROUP BY id)) < 3 ORDER BY id");
 $result = $stmt->execute();
 
 $i = 1;

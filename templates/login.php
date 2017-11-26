@@ -1,6 +1,6 @@
+{loginfailed}
 <main role="main" class="container-flex">
-    <body>
-        <form action="/ShitHub/model/login.php" align="center" method="post">
+        <form action="/model/login.php" align="center" method="post">
             <div class="container">
                 <div class="row">
                     <div class="col">
@@ -22,5 +22,4 @@
                 </div>
             </div>
         </form>
-    </body>
 </main>
